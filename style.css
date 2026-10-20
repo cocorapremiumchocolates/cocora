@@ -1,0 +1,1129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   COCORA — ONE GLOBAL DESIGN SYSTEM
+   This file is the visual layer for the CURRENT website.
+   Do not add page-specific font/color rules after this file.
+   ========================================================= */
+
+:root{
+    --cocora-bg:#241208;
+    --cocora-bg-deep:#1d0d06;
+    --cocora-gold:#d9a441;
+    --cocora-gold-main:#e1b454;
+    --cocora-gold-soft:#e0b254;
+    --cocora-text:#ead7ad;
+    --cocora-muted:#a7957c;
+    --cocora-border:rgba(217,164,65,.18);
+}
+
+/* ---------- GLOBAL RESET ---------- */
+
+*{
+    margin:0 !important;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    background:var(--cocora-bg) !important;
+}
+
+body{
+    min-height:100vh !important;
+    background:
+        radial-gradient(circle at 50% 15%,rgba(130,75,25,.14),transparent 42%),
+        var(--cocora-bg) !important;
+    color:var(--cocora-text) !important;
+
+    /* ONE FONT FOR THE ENTIRE WEBSITE */
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+
+    overflow-x:hidden !important;
+}
+
+body *,
+body *::before,
+body *::after{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+a{
+    color:inherit !important;
+    text-decoration:none !important;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+/* ---------- COMMON TEXT COLORS ---------- */
+
+h1,h2,h3,h4,h5,h6,
+p,
+span,
+label,
+li,
+small,
+strong{
+    color:inherit;
+}
+
+/* =========================================================
+   NAVBAR — SAME ON EVERY PAGE
+   ========================================================= */
+
+.navbar{
+    width:100% !important;
+    height:82px !important;
+    min-height:82px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    padding:0 5% !important;
+    position:sticky !important;
+    top:0 !important;
+    z-index:1000 !important;
+
+    background:rgba(29,13,6,.96) !important;
+    border-bottom:1px solid rgba(217,164,65,.18) !important;
+    backdrop-filter:blur(12px) !important;
+    -webkit-backdrop-filter:blur(12px) !important;
+}
+
+/* Handles both old and newer navbar markup */
+.navbar .nav-links,
+.nav-links{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:42px !important;
+}
+
+.navbar .nav-links a,
+.nav-links a,
+.navbar > a:not(.login-link){
+    color:#bca47b !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:18px !important;
+    font-weight:500 !important;
+    letter-spacing:1.2px !important;
+    text-transform:none !important;
+    position:relative !important;
+    transition:color .3s ease,transform .3s ease !important;
+}
+
+.navbar .nav-links a::after,
+.nav-links a::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    bottom:-8px !important;
+    width:0 !important;
+    height:1px !important;
+    background:var(--cocora-gold) !important;
+    transition:width .3s ease !important;
+}
+
+.navbar .nav-links a:hover,
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--cocora-gold-main) !important;
+}
+
+.navbar .nav-links a:hover::after,
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100% !important;
+}
+
+/* Login / My Account */
+.login-link{
+    position:absolute !important;
+    right:5% !important;
+
+    color:var(--cocora-gold) !important;
+    border:1px solid rgba(217,164,65,.45) !important;
+
+    padding:10px 20px !important;
+
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:17px !important;
+    font-weight:500 !important;
+    letter-spacing:1px !important;
+    text-transform:none !important;
+
+    background:transparent !important;
+    transition:.3s ease !important;
+}
+
+.login-link:hover{
+    background:var(--cocora-gold) !important;
+    color:var(--cocora-bg) !important;
+}
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.hero{
+    min-height:calc(100vh - 82px) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+
+    position:relative !important;
+    overflow:hidden !important;
+    padding:70px 20px !important;
+
+    background:transparent !important;
+}
+
+.hero::before{
+    content:"" !important;
+    position:absolute !important;
+    width:600px !important;
+    height:600px !important;
+    border-radius:50% !important;
+
+    background:rgba(217,164,65,.055) !important;
+    filter:blur(100px) !important;
+
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%,-55%) !important;
+}
+
+.hero-content{
+    position:relative !important;
+    z-index:2 !important;
+    max-width:900px !important;
+
+    animation:heroReveal 1s ease both !important;
+}
+
+.logo,
+.hero-logo{
+    width:105px !important;
+    height:105px !important;
+    object-fit:contain !important;
+    margin:0 auto 28px !important;
+
+    filter:drop-shadow(0 15px 25px rgba(0,0,0,.35)) !important;
+}
+
+.hero h1,
+.hero > h1,
+h1{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    font-size:clamp(48px,8vw,90px) !important;
+    font-weight:600 !important;
+    letter-spacing:8px !important;
+    line-height:1 !important;
+    text-align:center !important;
+}
+
+.premium-text,
+.hero-subtitle{
+    color:#a88e61 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:17px !important;
+    font-weight:500 !important;
+    letter-spacing:5px !important;
+    text-transform:uppercase !important;
+    margin:15px 0 25px !important;
+}
+
+.tagline,
+.hero-tagline{
+    color:#d5c09a !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:23px !important;
+    font-style:italic !important;
+    line-height:1.7 !important;
+    margin-bottom:35px !important;
+}
+
+.hero-line{
+    width:65px !important;
+    height:1px !important;
+    background:var(--cocora-gold) !important;
+    margin:0 auto 35px !important;
+}
+
+/* Buttons */
+.button,
+.explore-btn,
+.final-btn{
+    display:inline-block !important;
+
+    padding:15px 32px !important;
+
+    border:1px solid var(--cocora-gold) !important;
+    border-radius:0 !important;
+
+    color:var(--cocora-gold) !important;
+    background:transparent !important;
+
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:17px !important;
+    font-weight:600 !important;
+    letter-spacing:1.5px !important;
+    text-transform:none !important;
+
+    transition:.3s ease !important;
+}
+
+.button:hover,
+.explore-btn:hover,
+.final-btn:hover{
+    background:var(--cocora-gold) !important;
+    color:var(--cocora-bg) !important;
+    transform:translateY(-2px) !important;
+}
+
+/* =========================================================
+   ALL PAGE HEADINGS — SAME FONT / SIZE LANGUAGE
+   ========================================================= */
+
+.products-header,
+.about-header,
+.contact-header,
+.page-header{
+    text-align:center !important;
+}
+
+.products-header h1,
+.about-header h1,
+.contact-header h1,
+.page-header h1{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:clamp(48px,6vw,72px) !important;
+    font-weight:600 !important;
+    letter-spacing:2px !important;
+    line-height:1.1 !important;
+}
+
+.products-header p,
+.about-header p,
+.contact-header p,
+.page-header p{
+    color:#d5c09a !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:21px !important;
+    line-height:1.7 !important;
+}
+
+/* =========================================================
+   PRODUCTS — SAME GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+.products-page{
+    background:transparent !important;
+    color:var(--cocora-text) !important;
+}
+
+.products-grid{
+    width:90% !important;
+    max-width:1200px !important;
+    margin:60px auto !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:30px !important;
+}
+
+.product-card{
+    border:1px solid rgba(217,164,65,.35) !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+
+    background:rgba(43,19,8,.45) !important;
+
+    color:var(--cocora-text) !important;
+    text-align:center !important;
+
+    transition:.4s ease !important;
+    backdrop-filter:blur(8px) !important;
+    -webkit-backdrop-filter:blur(8px) !important;
+}
+
+.product-card:hover{
+    transform:translateY(-8px) !important;
+    border-color:rgba(217,164,65,.7) !important;
+    box-shadow:0 0 25px rgba(217,164,65,.18) !important;
+}
+
+.product-card img{
+    width:100% !important;
+    height:260px !important;
+    object-fit:cover !important;
+    display:block !important;
+    margin:0 !important;
+    border-radius:0 !important;
+
+    transition:transform .5s ease !important;
+}
+
+.product-card:hover img{
+    transform:scale(1.035) !important;
+}
+
+.product-card h2,
+.product-card h3{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:29px !important;
+    font-weight:600 !important;
+    margin:20px 0 10px !important;
+}
+
+.product-card p{
+    color:#c7ae85 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:18px !important;
+    line-height:1.7 !important;
+    padding:0 20px !important;
+}
+
+.price{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:27px !important;
+    font-weight:700 !important;
+    margin:18px 0 25px !important;
+}
+
+.product-actions{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;
+    padding:0 20px 25px !important;
+}
+
+/* Product buttons */
+.product-card .button,
+.product-card .btn,
+.product-card button,
+.add-cart-btn,
+.view-details{
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:17px !important;
+    border-radius:0 !important;
+}
+
+/* =========================================================
+   PRODUCT DETAIL
+   ========================================================= */
+
+.product-page,
+.single-product-page{
+    background:transparent !important;
+    color:var(--cocora-text) !important;
+}
+
+.single-product,
+.product-details{
+    color:var(--cocora-text) !important;
+}
+
+.single-product h1,
+.product-details h1{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:clamp(42px,5vw,62px) !important;
+    font-weight:600 !important;
+    letter-spacing:1px !important;
+}
+
+.single-product p,
+.product-description{
+    color:#c7ae85 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:20px !important;
+    line-height:1.8 !important;
+}
+
+.single-product-price{
+    color:#f0c96a !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:32px !important;
+    font-weight:700 !important;
+}
+
+/* =========================================================
+   ABOUT / CONTACT — SAME AS PRODUCTS
+   ========================================================= */
+
+.about-content,
+.contact-content{
+    color:var(--cocora-text) !important;
+}
+
+.about-content h2,
+.about-story h2,
+.about-section h2,
+.story-panel h2,
+.vision-panel h2,
+.contact-info h2,
+.contact-form h2{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:36px !important;
+    font-weight:600 !important;
+}
+
+.about-content p,
+.about-story p,
+.about-section p,
+.story-panel p,
+.vision-panel p,
+.contact-info p,
+.contact-form p{
+    color:#c7ae85 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:19px !important;
+    line-height:1.8 !important;
+}
+
+.feature-card{
+    border:1px solid rgba(217,164,65,.25) !important;
+    background:rgba(43,19,8,.35) !important;
+}
+
+.feature-card h3{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:24px !important;
+}
+
+.feature-card p{
+    color:#a7957c !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+}
+
+/* =========================================================
+   LOGIN / REGISTER / ACCOUNT / CHECKOUT / PAYMENT
+   ========================================================= */
+
+.form-card,
+.account-card,
+.checkout-form,
+.contact-form,
+.payment-card,
+.payment-option,
+.cart-summary,
+.empty-state,
+.thankyou-box,
+.confirmation-box{
+    background:rgba(43,19,8,.45) !important;
+    border:1px solid rgba(217,164,65,.3) !important;
+    border-radius:0 !important;
+    color:var(--cocora-text) !important;
+}
+
+.form-card h1,
+.form-card h2,
+.account-card h1,
+.account-card h2,
+.checkout-form h1,
+.checkout-form h2,
+.payment-card h1,
+.payment-card h2,
+.cart-summary h2,
+.empty-state h1,
+.thankyou-box h1,
+.confirmation-box h1{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-weight:600 !important;
+}
+
+.form-card label,
+.checkout-form label,
+.contact-form label{
+    color:#e0b254 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:18px !important;
+}
+
+.form-card p,
+.checkout-form p,
+.payment-card p{
+    color:#c7ae85 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:18px !important;
+    line-height:1.7 !important;
+}
+
+input,
+textarea,
+select{
+    color:#ead7ad !important;
+    background:rgba(20,8,3,.72) !important;
+    border:1px solid rgba(217,164,65,.45) !important;
+    border-radius:0 !important;
+    font-size:17px !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e1b454 !important;
+    outline:none !important;
+    box-shadow:0 0 0 2px rgba(217,164,65,.08) !important;
+}
+
+button,
+.btn,
+.btn-primary,
+.btn-gold,
+.add-cart-btn,
+.checkout-btn,
+.proceed-btn{
+    border:1px solid var(--cocora-gold) !important;
+    border-radius:0 !important;
+    background:var(--cocora-gold) !important;
+    color:var(--cocora-bg) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:17px !important;
+    font-weight:600 !important;
+    transition:.3s ease !important;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-gold:hover,
+.add-cart-btn:hover,
+.checkout-btn:hover,
+.proceed-btn:hover{
+    background:#f0c96a !important;
+    border-color:#f0c96a !important;
+    color:var(--cocora-bg) !important;
+    transform:translateY(-2px) !important;
+}
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+.cart-item{
+    background:rgba(43,19,8,.45) !important;
+    border:1px solid rgba(217,164,65,.25) !important;
+    border-radius:0 !important;
+}
+
+.cart-item h2,
+.cart-item h3{
+    color:var(--cocora-gold-main) !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+}
+
+.cart-item p,
+.summary-row{
+    color:#c7ae85 !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+}
+
+.cart-item-total,
+.summary-row.total{
+    color:#f0c96a !important;
+}
+
+/* =========================================================
+   FLOATING CART / CHECKOUT
+   IMPORTANT:
+   PHP controls visibility.
+   CSS does NOT create these buttons.
+   ========================================================= */
+
+.floating-cart{
+    position:fixed !important;
+    right:24px !important;
+    bottom:24px !important;
+    z-index:5000 !important;
+
+    display:flex !important;
+    gap:10px !important;
+    align-items:center !important;
+}
+
+.floating-cart a{
+    display:inline-block !important;
+    padding:11px 18px !important;
+
+    border:1px solid var(--cocora-gold) !important;
+    border-radius:0 !important;
+
+    background:var(--cocora-bg) !important;
+    color:var(--cocora-gold) !important;
+
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:16px !important;
+    font-weight:600 !important;
+
+    transition:.3s ease !important;
+}
+
+.floating-cart a:hover{
+    background:var(--cocora-gold) !important;
+    color:var(--cocora-bg) !important;
+    transform:translateY(-2px) !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+    border-top:1px solid rgba(217,164,65,.15) !important;
+    background:var(--cocora-bg) !important;
+    color:#6f604d !important;
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes heroReveal{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        height:auto !important;
+        min-height:75px !important;
+        padding:15px 5% !important;
+        flex-wrap:wrap !important;
+        gap:14px !important;
+    }
+
+    .nav-links{
+        width:100% !important;
+        gap:20px !important;
+        order:2 !important;
+        overflow-x:auto !important;
+    }
+
+    .login-link{
+        right:5% !important;
+        top:14px !important;
+        padding:8px 13px !important;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width:700px){
+
+    .nav-links a{
+        font-size:16px !important;
+        white-space:nowrap !important;
+    }
+
+    .hero{
+        min-height:calc(100vh - 125px) !important;
+        padding:60px 18px !important;
+    }
+
+    .logo,
+    .hero-logo{
+        width:82px !important;
+        height:82px !important;
+    }
+
+    h1,
+    .hero h1{
+        font-size:48px !important;
+        letter-spacing:5px !important;
+    }
+
+    .tagline,
+    .hero-tagline{
+        font-size:18px !important;
+    }
+
+    .products-grid{
+        width:92% !important;
+        grid-template-columns:1fr !important;
+        gap:24px !important;
+    }
+
+    .products-header h1,
+    .about-header h1,
+    .contact-header h1,
+    .page-header h1{
+        font-size:46px !important;
+    }
+
+    .floating-cart{
+        left:12px !important;
+        right:12px !important;
+        bottom:12px !important;
+    }
+
+    .floating-cart a{
+        flex:1 !important;
+        text-align:center !important;
+    }
+}
+
+@media(max-width:480px){
+
+    .nav-links{
+        gap:14px !important;
+    }
+
+    .nav-links a{
+        font-size:15px !important;
+    }
+
+    h1,
+    .hero h1{
+        font-size:42px !important;
+    }
+
+    .products-header h1,
+    .about-header h1,
+    .contact-header h1,
+    .page-header h1{
+        font-size:38px !important;
+    }
+
+    .floating-cart{
+        flex-direction:column !important;
+    }
+
+    .floating-cart a{
+        width:100% !important;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL GLOBAL COCORA OVERRIDE
+   ONE FONT + ONE CONSISTENT COLOUR TONE ACROSS ALL PAGES
+   ========================================================= */
+
+/* Load the single website font */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+:root{
+    --cocora-bg:#241208 !important;
+    --cocora-bg-deep:#1d0d06 !important;
+    --cocora-gold:#d9a441 !important;
+    --cocora-gold-main:#e1b454 !important;
+    --cocora-gold-soft:#e0b254 !important;
+    --cocora-text:#ead7ad !important;
+    --cocora-muted:#a7957c !important;
+    --cocora-border:rgba(217,164,65,.25) !important;
+}
+
+/* THE ONE FONT — applies to every element on every page */
+html,
+body,
+body *,
+body *::before,
+body *::after,
+button,
+input,
+textarea,
+select,
+option{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+/* THE ONE GLOBAL BACKGROUND/TONE */
+html,
+body{
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(130,75,25,.14),
+            transparent 42%
+        ),
+        #241208 !important;
+
+    color:#ead7ad !important;
+}
+
+/* Headings: same font family, same gold family */
+h1,h2,h3,h4,h5,h6,
+.hero h1,
+.products-header h1,
+.about-header h1,
+.contact-header h1,
+.page-header h1,
+.product-details h1,
+.single-product h1,
+.form-card h1,
+.form-card h2,
+.checkout-form h1,
+.checkout-form h2,
+.payment-card h1,
+.payment-card h2,
+.cart-summary h2,
+.empty-state h1,
+.thankyou-box h1,
+.confirmation-box h1{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    color:#e1b454 !important;
+}
+
+/* Normal text: same warm cream/gold-brown tone */
+p,
+span,
+li,
+label,
+small,
+div{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+/* Remove page-to-page bright/black colour differences */
+body p,
+body .welcome-text,
+body .product-card p,
+body .about-content p,
+body .about-story p,
+body .about-section p,
+body .story-panel p,
+body .vision-panel p,
+body .contact-info p,
+body .contact-form p,
+body .form-card p,
+body .checkout-form p,
+body .payment-card p{
+    color:#c7ae85 !important;
+}
+
+/* Main titles */
+body h1,
+body h2{
+    color:#e1b454 !important;
+}
+
+/* Smaller labels */
+.section-label,
+.eyebrow,
+.products-header p,
+.about-header p,
+.contact-header p,
+.page-header p,
+.premium-text,
+.hero-subtitle{
+    color:#b99a63 !important;
+}
+
+/* Navigation — identical everywhere */
+.navbar,
+.navbar a,
+.nav-links,
+.nav-links a{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+.nav-links a{
+    color:#c7ae85 !important;
+    font-size:18px !important;
+    font-weight:500 !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#e1b454 !important;
+}
+
+.login-link{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    color:#d9a441 !important;
+    border-color:rgba(217,164,65,.45) !important;
+}
+
+.login-link:hover{
+    background:#d9a441 !important;
+    color:#241208 !important;
+}
+
+/* Buttons — one gold language everywhere */
+button,
+.button,
+.explore-btn,
+.final-btn,
+.btn,
+.btn-primary,
+.btn-gold,
+.add-cart-btn,
+.checkout-btn,
+.proceed-btn,
+.view-details,
+.continue-btn{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    color:#241208 !important;
+    border-color:#d9a441 !important;
+    background:#d9a441 !important;
+}
+
+.button,
+.explore-btn,
+.final-btn,
+.view-details,
+.continue-btn{
+    background:transparent !important;
+    color:#d9a441 !important;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-gold:hover,
+.add-cart-btn:hover,
+.checkout-btn:hover,
+.proceed-btn:hover,
+.button:hover,
+.explore-btn:hover,
+.final-btn:hover,
+.view-details:hover,
+.continue-btn:hover{
+    background:#e1b454 !important;
+    color:#241208 !important;
+}
+
+/* Product / content cards — same tone */
+.product-card,
+.about-story,
+.about-section,
+.story-panel,
+.vision-panel,
+.contact-info,
+.contact-form,
+.form-card,
+.account-card,
+.checkout-form,
+.payment-card,
+.payment-option,
+.cart-item,
+.cart-summary,
+.empty-state,
+.thankyou-box,
+.confirmation-box,
+.feature-card{
+    background:rgba(43,19,8,.45) !important;
+    border-color:rgba(217,164,65,.28) !important;
+    color:#ead7ad !important;
+}
+
+/* Product names / important labels */
+.product-card h2,
+.product-card h3,
+.price,
+.single-product-price,
+.account-name,
+.feature-card h3{
+    color:#e1b454 !important;
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+/* Form controls */
+input,
+textarea,
+select{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    color:#ead7ad !important;
+    background:#1d0d06 !important;
+    border-color:rgba(217,164,65,.45) !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#8f795d !important;
+}
+
+/* Floating cart keeps the same theme; visibility remains PHP-controlled */
+.floating-cart a{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    background:#241208 !important;
+    color:#d9a441 !important;
+    border-color:#d9a441 !important;
+}
+
+.floating-cart a:hover{
+    background:#d9a441 !important;
+    color:#241208 !important;
+}
+
+/* Footer */
+.footer,
+.footer *{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+}
+
+.footer{
+    background:#241208 !important;
+    color:#8f795d !important;
+    border-top-color:rgba(217,164,65,.18) !important;
+}
+
+/* Kill accidental white/black page backgrounds from old page CSS */
+section,
+main,
+.page-section,
+.page-container,
+.products-page,
+.about-page,
+.contact-page,
+.account-page,
+.login-page,
+.cart-page,
+.checkout-page,
+.payment-page,
+.confirmation-page{
+    background-color:transparent !important;
+    color:#ead7ad !important;
+}
+
+/* Keep mobile on the same exact theme */
+@media(max-width:700px){
+    body,
+    body *{
+        font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+    }
+}
